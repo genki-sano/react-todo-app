@@ -1,9 +1,9 @@
-import React from 'react';
-import { Provider } from 'react-redux';
-import { createGlobalStyle } from 'styled-components';
-import resetStyle from 'styled-reset';
-import TodoApp from './components/Pages/TodoApp';
-import { setupStore } from './store';
+import React from 'react'
+import { Provider } from 'react-redux'
+import { createGlobalStyle } from 'styled-components'
+import resetStyle from 'styled-reset'
+import TodoApp from './components/Pages/TodoApp'
+import { setupStore } from './store'
 
 const GlobalStyle = createGlobalStyle`
   ${resetStyle}
@@ -15,9 +15,9 @@ const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-`;
+`
 
-const store = setupStore();
+const store = setupStore()
 
 const App: React.FC = () => {
   return (
@@ -25,7 +25,7 @@ const App: React.FC = () => {
       <GlobalStyle />
       <TodoApp />
     </Provider>
-  );
-};
+  )
+}
 
-export default App;
+export default App

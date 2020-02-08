@@ -1,11 +1,11 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import taskModule, { useTodoSelector } from '../../modules/taskModule';
-import TodoList from '../Organisms/TodoList';
+import React from 'react'
+import { useDispatch } from 'react-redux'
+import taskModule, { useTodoSelector } from '../../modules/taskModule'
+import TodoList from '../Organisms/TodoList'
 
 const TodoApp: React.FC = () => {
-  const dispatch = useDispatch();
-  const state = useTodoSelector();
+  const dispatch = useDispatch()
+  const state = useTodoSelector()
 
   return (
     <div>
@@ -20,7 +20,7 @@ const TodoApp: React.FC = () => {
       />
       <TodoList />
     </div>
-  );
-};
+  )
+}
 
-export default TodoApp;
+export default TodoApp
