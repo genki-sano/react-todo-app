@@ -1,6 +1,6 @@
 import React from 'react'
-import AddTask from '../Molecules/AddTask'
-import TodoList from '../Organisms/TodoList'
+import AddTask from '@/components/Molecules/AddTask'
+import TodoList from '@/components/Organisms/TodoList'
 
 const TodoApp: React.FC = () => {
   return (

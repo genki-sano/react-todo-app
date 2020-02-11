@@ -1,5 +1,5 @@
 import React from 'react'
-import { useTodoSelector } from '../../modules/taskModule'
+import { useTodoSelector } from '@/modules/taskModule'
 
 const TodoList: React.FC = () => {
   const state = useTodoSelector()

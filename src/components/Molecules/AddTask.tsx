@@ -1,6 +1,6 @@
 import React from 'react'
-import TextArea from '../Atoms/TextArea'
-import Button from '../Atoms/Button'
+import TextArea from '@/components/Atoms/TextArea'
+import Button from '@/components/Atoms/Button'
 
 const AddTask: React.FC = props => {
   return (

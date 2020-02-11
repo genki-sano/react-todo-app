@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import taskModule, { useTodoSelector } from '../../modules/taskModule'
+import taskModule, { useTodoSelector } from '@/modules/taskModule'
 
 type ButtonProps = { value: string }
 

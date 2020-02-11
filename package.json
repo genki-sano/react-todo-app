@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.2.3",
@@ -21,8 +21,7 @@
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
     "styled-components": "^5.0.1",
-    "styled-reset": "^4.1.0",
-    "typescript": "~3.7.2"
+    "styled-reset": "^4.1.0"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -49,7 +48,9 @@
     "@types/styled-components": "^4.4.2",
     "husky": "^4.2.1",
     "lint-staged": "^10.0.7",
-    "prettier": "^1.19.1"
+    "prettier": "^1.19.1",
+    "react-app-rewired": "^2.1.5",
+    "typescript": "~3.7.2"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
