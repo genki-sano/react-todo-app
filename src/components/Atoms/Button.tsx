@@ -8,7 +8,7 @@ const Button: React.FC<ButtonProps> = props => {
   const dispatch = useDispatch()
   const state = useTodoSelector()
 
-  const addTask = (task: string) => {
+  const clickHandler = (task: string) => {
     dispatch(taskModule.actions.addTask(task))
   }
 
@@ -16,7 +16,7 @@ const Button: React.FC<ButtonProps> = props => {
     <input
       type="button"
       value={props.value}
-      onClick={() => addTask(state.task)}
+      onClick={() => clickHandler(state.task)}
     />
   )
 }
