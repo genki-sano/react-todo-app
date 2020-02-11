@@ -4,7 +4,7 @@ import {
   getDefaultMiddleware,
 } from '@reduxjs/toolkit'
 import logger from 'redux-logger'
-import taskModule from './modules/taskModule'
+import taskModule from '@/modules/taskModule'
 
 const rootReducer = combineReducers({
   todos: taskModule.reducer,
