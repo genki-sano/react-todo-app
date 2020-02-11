@@ -5,6 +5,8 @@ import resetStyle from 'styled-reset'
 import TodoApp from './components/Pages/TodoApp'
 import { setupStore } from './store'
 
+const store = setupStore()
+
 const GlobalStyle = createGlobalStyle`
   ${resetStyle}
   body {
@@ -16,8 +18,6 @@ const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
   }
 `
-
-const store = setupStore()
 
 const App: React.FC = () => {
   return (
