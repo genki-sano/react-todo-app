@@ -2,7 +2,7 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { createGlobalStyle } from 'styled-components'
 import resetStyle from 'styled-reset'
-import TodoApp from '@/components/Pages/TodoApp'
+import TodoApp from '@/components/TodoApp'
 import { setupStore } from '@/store'
 
 const store = setupStore()
