@@ -1,28 +1,15 @@
 import React from 'react'
 import { Provider } from 'react-redux'
-import { createGlobalStyle } from 'styled-components'
-import resetStyle from 'styled-reset'
 import TodoApp from '@/components/TodoApp'
 import { setupStore } from '@/store'
+import CssBaseline from '@material-ui/core/CssBaseline'
 
 const store = setupStore()
-
-const GlobalStyle = createGlobalStyle`
-  ${resetStyle}
-  body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-`
 
 const App: React.FC = () => {
   return (
     <Provider store={store}>
-      <GlobalStyle />
+      <CssBaseline />
       <TodoApp />
     </Provider>
   )
