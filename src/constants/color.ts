@@ -1,5 +1,5 @@
 export const Color = {
-  bulue: {
+  blue: {
     d: '#029df4',
     l: '#d7effd',
   },
@@ -68,9 +68,9 @@ export const ButtonColor = {
   },
   primary: {
     darker: '#008ede',
-    dark: Color.bulue.d,
+    dark: Color.blue.d,
     light: '#35b1f6',
-    lighter: Color.bulue.l,
+    lighter: Color.blue.l,
   },
   info: {
     darker: '#84cd7e',
