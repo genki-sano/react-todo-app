@@ -1,35 +1,39 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { useSelector } from 'react-redux'
 
+interface Task {
+  id: number
+  text: string
+}
 interface TaskState {
-  task: string
-  tasks: string[]
+  tasks: Task[]
+  nextTaskId: number
 }
 
-interface TodoListState {
+interface State {
   todos: TaskState
 }
 
 const taskInitialState: TaskState = {
-  task: '',
   tasks: [],
+  nextTaskId: 0,
 }
 
 const taskModule = createSlice({
   name: 'test',
   initialState: taskInitialState,
   reducers: {
-    inputTask: (state: TaskState, action: PayloadAction<string>) => {
-      state.task = action.payload
-    },
     addTask: (state: TaskState, action: PayloadAction<string>) => {
-      state.tasks.push(action.payload)
+      state.tasks.push({
+        id: state.nextTaskId++,
+        text: action.payload,
+      })
     },
   },
 })
 
 export const useTodoSelector = () => {
-  return useSelector((state: TodoListState) => state.todos)
+  return useSelector((state: State) => state.todos)
 }
 
 export default taskModule
