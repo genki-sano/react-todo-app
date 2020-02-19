@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography'
 
 const Warp = styled(Card)`
   margin: 8px 8px 0;
-  display: flex;
+  position: relative;
 `
 
 const Content = styled(CardContent)`
@@ -20,7 +20,21 @@ const Content = styled(CardContent)`
 `
 
 const Button = styled(IconButton)`
-  padding: 0 6px;
+  opacity: 0.8;
+  padding: 4px;
+  margin: 2px;
+  position: absolute;
+  right: 4px;
+  top: 0;
+  z-index: 40;
+  &:hover {
+    opacity: 1;
+  }
+`
+
+const Text = styled(Typography)`
+  word-wrap: break-word;
+  white-space: initial;
 `
 
 interface CardProps {
@@ -31,7 +45,7 @@ const TaskCard: React.FC<CardProps> = props => {
   return (
     <Warp>
       <Content key={props.key}>
-        <Typography color="inherit">{props.children}</Typography>
+        <Text color="inherit">{props.children}</Text>
       </Content>
       <Button aria-label="delete">
         <DeleteIcon />
