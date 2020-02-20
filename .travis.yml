@@ -16,8 +16,8 @@ install:
   - yarn install
 
 script:
-  - echo "========== Build Start =========="
   - yarn build
+  - yarn test
 
 branches:
   only:
