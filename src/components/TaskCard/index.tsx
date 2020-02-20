@@ -19,7 +19,7 @@ const Content = styled(CardContent)`
   }
 `
 
-const Button = styled(IconButton)`
+const DeleteIconButton = styled(IconButton)`
   opacity: 0.8;
   padding: 4px;
   margin: 2px;
@@ -47,9 +47,9 @@ const TaskCard: React.FC<CardProps> = props => {
       <Content key={props.key}>
         <Text color="inherit">{props.children}</Text>
       </Content>
-      <Button aria-label="delete">
+      <DeleteIconButton aria-label="delete">
         <DeleteIcon />
-      </Button>
+      </DeleteIconButton>
     </Warp>
   )
 }

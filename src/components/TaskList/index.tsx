@@ -46,16 +46,17 @@ const TaskList: React.FC = () => {
         <FromWarp container spacing={0}>
           <TextField
             fullWidth
-            onKeyDown={(e: any) => {
-              if (e.keyCode === KEY_ENTER && e.target.value !== '') {
-                addTask(e.target.value)
-                e.target.value = ''
+            onKeyDown={(e: React.KeyboardEvent<HTMLElement>) => {
+              const input = e.target as HTMLInputElement
+              if (e.keyCode === KEY_ENTER && input.value !== '') {
+                addTask(input.value)
+                input.value = ''
               }
             }}
           />
         </FromWarp>
-        {state.tasks.map((task, id) => {
-          return <TaskCard key={id}>{task.text}</TaskCard>
+        {state.tasks.map(task => {
+          return <TaskCard key={task.id}>{task.text}</TaskCard>
         })}
       </List>
     </ListWarp>
