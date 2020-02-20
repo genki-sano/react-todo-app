@@ -1,7 +1,7 @@
 import taskModule from './taskModule'
 
 describe('taskModule', () => {
-  test('addTask Action', () => {
+  test('addTask', () => {
     const state = {
       tasks: [],
       nextTaskId: 0,
@@ -12,6 +12,40 @@ describe('taskModule', () => {
     const expected = {
       tasks: [{ id: 0, text: task }],
       nextTaskId: 1,
+    }
+
+    expect(result).toEqual(expected)
+  })
+
+  test('deleteTask：IDと順番が一致', () => {
+    const taskId = 0
+    const state = {
+      tasks: [{ id: taskId, text: 'テストを学ぶ' }],
+      nextTaskId: 1,
+    }
+    const action = taskModule.actions.deleteTask(taskId)
+    const result = taskModule.reducer(state, action)
+    const expected = {
+      tasks: [],
+      nextTaskId: 1,
+    }
+
+    expect(result).toEqual(expected)
+  })
+  test('deleteTask：IDと順番が不一致', () => {
+    const taskId = 2
+    const state = {
+      tasks: [
+        { id: taskId, text: 'Reactを学ぶ' },
+        { id: 3, text: 'Reduxを学ぶ' },
+      ],
+      nextTaskId: 4,
+    }
+    const action = taskModule.actions.deleteTask(taskId)
+    const result = taskModule.reducer(state, action)
+    const expected = {
+      tasks: [{ id: 3, text: 'Reduxを学ぶ' }],
+      nextTaskId: 4,
     }
 
     expect(result).toEqual(expected)

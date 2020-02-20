@@ -20,7 +20,7 @@ const taskInitialState: TaskState = {
 }
 
 const taskModule = createSlice({
-  name: 'test',
+  name: 'todos',
   initialState: taskInitialState,
   reducers: {
     addTask: (state: TaskState, action: PayloadAction<string>) => {
@@ -28,6 +28,9 @@ const taskModule = createSlice({
         id: state.nextTaskId++,
         text: action.payload,
       })
+    },
+    deleteTask: (state: TaskState, action: PayloadAction<number>) => {
+      state.tasks = state.tasks.filter(el => el.id !== action.payload)
     },
   },
 })
