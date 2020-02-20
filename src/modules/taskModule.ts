@@ -30,7 +30,9 @@ const taskModule = createSlice({
       })
     },
     deleteTask: (state: TaskState, action: PayloadAction<number>) => {
-      state.tasks = state.tasks.filter(el => el.id !== action.payload)
+      state.tasks = state.tasks.filter((task: Task) => {
+        return task.id !== action.payload
+      })
     },
   },
 })
