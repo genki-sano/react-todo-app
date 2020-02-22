@@ -16,8 +16,8 @@ install:
   - yarn install
 
 script:
-  - yarn build
   - yarn test
+  - yarn build
 
 branches:
   only:
