@@ -8,7 +8,7 @@ import {
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { ThemeProvider as StyledThemeProvider } from 'styled-components'
 import TodoApp from '@/components/TodoApp'
-import { Theme } from '@/constants/Theme'
+import { Theme } from '@/constants/theme'
 import { setupStore } from '@/stores'
 import * as serviceWorker from '@/serviceWorker'
 
