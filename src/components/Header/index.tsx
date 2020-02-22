@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
-import { Color } from '@/constants/color'
+import { Color } from '@/constants/Color'
 
 const Warp = styled(AppBar)`
   background-color: ${Color.blue.d};

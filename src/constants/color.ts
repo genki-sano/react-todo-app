@@ -58,36 +58,3 @@ export const Color = {
     subtlest: '#f2f3f5',
   },
 }
-
-export const ButtonColor = {
-  default: {
-    darker: '#566870',
-    dark: Color.gray.light,
-    light: '#84959d',
-    lighter: '#d9dee1',
-  },
-  primary: {
-    darker: '#008ede',
-    dark: Color.blue.d,
-    light: '#35b1f6',
-    lighter: Color.blue.l,
-  },
-  info: {
-    darker: '#84cd7e',
-    dark: Color.greenyellow.d,
-    light: '#41bc38',
-    lighter: Color.greenyellow.l,
-  },
-  warning: {
-    darker: '#d1a908',
-    dark: Color.yelloworange.d,
-    light: '#e3c64f',
-    lighter: Color.yelloworange.l,
-  },
-  danger: {
-    darker: '#f77581',
-    dark: Color.red.d,
-    light: '#e7303f',
-    lighter: Color.red.l,
-  },
-}
