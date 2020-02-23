@@ -1,4 +1,4 @@
-import taskModule from './taskModule'
+import taskModule from 'modules/taskModule'
 
 describe('taskModule', () => {
   test('addTask', () => {

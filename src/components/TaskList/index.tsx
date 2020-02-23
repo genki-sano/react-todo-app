@@ -6,9 +6,9 @@ import List from '@material-ui/core/List'
 import ListSubheader from '@material-ui/core/ListSubheader'
 import Paper from '@material-ui/core/Paper'
 import TextField from '@material-ui/core/TextField'
-import TaskCard from '@/components/TaskCard'
-import { Color } from '@/constants/color'
-import taskModule, { useTodoSelector } from '@/modules/taskModule'
+import TaskCard from 'components/TaskCard'
+import { Color } from 'constants/color'
+import taskModule, { useTodoSelector } from 'modules/taskModule'
 
 const FromWarp = styled(Grid)`
   width: calc(100% - 24px);
