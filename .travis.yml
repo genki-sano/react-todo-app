@@ -16,8 +16,6 @@ cache:
     - 'node_modules'
   yarn: true
 
-install: travis_wait mvn install
-
 script:
   - yarn build
   - yarn test
