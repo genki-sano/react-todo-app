@@ -1,7 +1,7 @@
 import taskModule from 'modules/taskModule'
 
 describe('taskModule', () => {
-  test('addTask', () => {
+  it('addTask：新規タスク追加', () => {
     const state = {
       tasks: [],
       nextTaskId: 0,
@@ -17,7 +17,7 @@ describe('taskModule', () => {
     expect(result).toEqual(expected)
   })
 
-  test('deleteTask：IDと順番が一致', () => {
+  it('deleteTask：IDと順番が一致', () => {
     const taskId = 0
     const state = {
       tasks: [{ id: taskId, text: 'テストを学ぶ' }],
@@ -32,7 +32,7 @@ describe('taskModule', () => {
 
     expect(result).toEqual(expected)
   })
-  test('deleteTask：IDと順番が不一致', () => {
+  it('deleteTask：IDと順番が不一致', () => {
     const taskId = 2
     const state = {
       tasks: [
