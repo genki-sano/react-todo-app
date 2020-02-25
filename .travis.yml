@@ -17,5 +17,5 @@ cache:
   yarn: true
 
 script:
-  - yarn test
   - yarn build
+  - yarn test
