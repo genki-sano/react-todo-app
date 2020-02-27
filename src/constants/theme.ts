@@ -34,4 +34,5 @@ export const Theme = createMuiTheme({
       contrastText: '#fff',
     },
   },
+  spacing: 4,
 })
