@@ -14,7 +14,7 @@ const TaskList: React.FC<TaskListProps> = props => {
         <List>
           {props.tasks.map((task: Task, i: number) => {
             return (
-              <TaskItem key={i} num={task.id}>
+              <TaskItem key={i} num={task.id} completed={task.completed}>
                 {task.text}
               </TaskItem>
             )
