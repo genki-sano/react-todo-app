@@ -38,6 +38,7 @@ const TaskCard: React.FC<TaskItemProps> = props => {
               checkedIcon={<DoneIcon />}
               color="primary"
               disableRipple
+              checked={props.completed}
             />
           }
           label={props.children}
