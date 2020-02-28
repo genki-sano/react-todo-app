@@ -1,10 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { useSelector } from 'react-redux'
-import { State } from 'types'
 import { TaskState, Task } from 'types/todos'
-
-const taskState = localStorage.getItem('taskState') || 'null'
-const taskInitialStorage: TaskState | null = JSON.parse(taskState) as TaskState
+import { getStrage, setStrage } from 'utils/tasks'
 
 const taskInitialState: TaskState = {
   tasks: [],
@@ -13,7 +9,7 @@ const taskInitialState: TaskState = {
 
 const taskModule = createSlice({
   name: 'todos',
-  initialState: taskInitialStorage || taskInitialState,
+  initialState: getStrage() || taskInitialState,
   reducers: {
     addTask: (state: TaskState, action: PayloadAction<string>) => {
       state.tasks.push({
@@ -21,26 +17,22 @@ const taskModule = createSlice({
         text: action.payload,
         completed: false,
       })
-      localStorage.setItem('taskState', JSON.stringify(state))
+      setStrage(state)
     },
     toggleTask: (state: TaskState, action: PayloadAction<number>) => {
       const id = action.payload
       state.tasks.forEach(task => {
         task.completed = task.id === id ? !task.completed : task.completed
       })
-      localStorage.setItem('taskState', JSON.stringify(state))
+      setStrage(state)
     },
     deleteTask: (state: TaskState, action: PayloadAction<number>) => {
       state.tasks = state.tasks.filter((task: Task) => {
         return task.id !== action.payload
       })
-      localStorage.setItem('taskState', JSON.stringify(state))
+      setStrage(state)
     },
   },
 })
-
-export const useTodoSelector = () => {
-  return useSelector((state: State) => state.todos)
-}
 
 export default taskModule

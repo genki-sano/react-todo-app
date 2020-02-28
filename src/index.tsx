@@ -10,7 +10,7 @@ import { ThemeProvider as StyledThemeProvider } from 'styled-components'
 import TodoApp from 'components/TodoApp'
 import { THEME } from 'constants/theme'
 import { setupStore } from 'stores'
-import * as serviceWorker from 'serviceWorker'
+import * as serviceWorker from 'utils/serviceWorker'
 
 const store = setupStore()
 

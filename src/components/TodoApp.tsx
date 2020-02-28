@@ -7,7 +7,8 @@ import Paper from '@material-ui/core/Paper'
 import Header from 'components/Header'
 import TaskList from 'components/TaskList'
 import { THEME } from 'constants/theme'
-import taskModule, { useTodoSelector } from 'modules/taskModule'
+import taskModule from 'modules/taskModule'
+import { useTodoSelector } from 'utils/tasks'
 
 const KEY_ENTER = 13
 
