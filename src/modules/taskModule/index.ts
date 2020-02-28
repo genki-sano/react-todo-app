@@ -16,6 +16,13 @@ const taskModule = createSlice({
       state.tasks.push({
         id: state.nextTaskId++,
         text: action.payload,
+        completed: false,
+      })
+    },
+    toggleTask: (state: TaskState, action: PayloadAction<number>) => {
+      const id = action.payload
+      state.tasks.forEach(task => {
+        task.completed = task.id === id ? !task.completed : task.completed
       })
     },
     deleteTask: (state: TaskState, action: PayloadAction<number>) => {

@@ -10,7 +10,38 @@ describe('taskModule', () => {
     const action = taskModule.actions.addTask(task)
     const result = taskModule.reducer(state, action)
     const expected = {
-      tasks: [{ id: 0, text: task }],
+      tasks: [{ id: 0, text: task, completed: false }],
+      nextTaskId: 1,
+    }
+
+    expect(result).toEqual(expected)
+  })
+
+  it('toggleTask：タスクを完了にする', () => {
+    const taskId = 0
+    const state = {
+      tasks: [{ id: taskId, text: 'テストを学ぶ', completed: false }],
+      nextTaskId: 1,
+    }
+    const action = taskModule.actions.toggleTask(taskId)
+    const result = taskModule.reducer(state, action)
+    const expected = {
+      tasks: [{ id: taskId, text: 'テストを学ぶ', completed: true }],
+      nextTaskId: 1,
+    }
+
+    expect(result).toEqual(expected)
+  })
+  it('toggleTask：タスクを未完了にする', () => {
+    const taskId = 0
+    const state = {
+      tasks: [{ id: taskId, text: 'テストを学ぶ', completed: true }],
+      nextTaskId: 1,
+    }
+    const action = taskModule.actions.toggleTask(taskId)
+    const result = taskModule.reducer(state, action)
+    const expected = {
+      tasks: [{ id: taskId, text: 'テストを学ぶ', completed: false }],
       nextTaskId: 1,
     }
 
@@ -20,7 +51,7 @@ describe('taskModule', () => {
   it('deleteTask：IDと順番が一致', () => {
     const taskId = 0
     const state = {
-      tasks: [{ id: taskId, text: 'テストを学ぶ' }],
+      tasks: [{ id: taskId, text: 'テストを学ぶ', completed: false }],
       nextTaskId: 1,
     }
     const action = taskModule.actions.deleteTask(taskId)
@@ -36,15 +67,15 @@ describe('taskModule', () => {
     const taskId = 2
     const state = {
       tasks: [
-        { id: taskId, text: 'Reactを学ぶ' },
-        { id: 3, text: 'Reduxを学ぶ' },
+        { id: taskId, text: 'Reactを学ぶ', completed: false },
+        { id: 3, text: 'Reduxを学ぶ', completed: false },
       ],
       nextTaskId: 4,
     }
     const action = taskModule.actions.deleteTask(taskId)
     const result = taskModule.reducer(state, action)
     const expected = {
-      tasks: [{ id: 3, text: 'Reduxを学ぶ' }],
+      tasks: [{ id: 3, text: 'Reduxを学ぶ', completed: false }],
       nextTaskId: 4,
     }
 
