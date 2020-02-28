@@ -5,7 +5,7 @@
 
 ## About react-todo-app
 
-react-todo-app is a web application created by imitating trello.
+react-todo-app is a simple todo list application built with React, Redux and Typescript.
 
 ## Install
 
