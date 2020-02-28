@@ -1,18 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { useSelector } from 'react-redux'
-
-interface Task {
-  id: number
-  text: string
-}
-interface TaskState {
-  tasks: Task[]
-  nextTaskId: number
-}
-
-interface State {
-  todos: TaskState
-}
+import { State } from 'types'
+import { TaskState, Task } from 'types/todos'
 
 const taskInitialState: TaskState = {
   tasks: [],
