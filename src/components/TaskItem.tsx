@@ -1,4 +1,5 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import Checkbox from '@material-ui/core/Checkbox'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import ListItem from '@material-ui/core/ListItem'
@@ -6,22 +7,29 @@ import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction'
 import IconButton from '@material-ui/core/IconButton'
 import DeleteIcon from '@material-ui/icons/Delete'
-import Done from '@material-ui/icons/Done'
-import RadioButtonUncheckedSharp from '@material-ui/icons/RadioButtonUncheckedSharp'
+import DoneIcon from '@material-ui/icons/Done'
+import RadioButtonUncheckedSharpIcon from '@material-ui/icons/RadioButtonUncheckedSharp'
+import taskModule from 'modules/taskModule'
 
-interface CardProps {
-  key: number
+interface TaskItemProps {
+  num: number
 }
 
-const TaskCard: React.FC<CardProps> = props => {
+const TaskCard: React.FC<TaskItemProps> = props => {
+  const dispatch = useDispatch()
+
+  const deleteTask = (id: number) => {
+    dispatch(taskModule.actions.deleteTask(id))
+  }
+
   return (
-    <ListItem key={props.key} role={undefined} dense>
+    <ListItem key={props.num} dense>
       <ListItemIcon>
         <FormControlLabel
           control={
             <Checkbox
-              icon={<RadioButtonUncheckedSharp />}
-              checkedIcon={<Done />}
+              icon={<RadioButtonUncheckedSharpIcon />}
+              checkedIcon={<DoneIcon />}
               color="primary"
               disableRipple
             />
@@ -30,7 +38,12 @@ const TaskCard: React.FC<CardProps> = props => {
         />
       </ListItemIcon>
       <ListItemSecondaryAction>
-        <IconButton edge="end" aria-label="comments">
+        <IconButton
+          edge="end"
+          onClick={() => {
+            deleteTask(props.num)
+          }}
+        >
           <DeleteIcon />
         </IconButton>
       </ListItemSecondaryAction>

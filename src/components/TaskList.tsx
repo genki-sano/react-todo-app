@@ -12,8 +12,12 @@ const TaskList: React.FC<TaskListProps> = props => {
     <>
       {props.tasks.length > 0 && (
         <List>
-          {props.tasks.map(task => {
-            return <TaskItem key={task.id}>{task.text}</TaskItem>
+          {props.tasks.map((task: Task, i: number) => {
+            return (
+              <TaskItem key={i} num={task.id}>
+                {task.text}
+              </TaskItem>
+            )
           })}
         </List>
       )}
