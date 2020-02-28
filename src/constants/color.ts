@@ -1,4 +1,4 @@
-export const Color = {
+export const COLOR = {
   blue: {
     d: '#029df4',
     l: '#d7effd',
@@ -46,15 +46,5 @@ export const Color = {
   purpleblue: {
     d: '#4284e4',
     l: '#e1ebfb',
-  },
-  gray: {
-    darker: '#121618',
-    dark: '#2d383c',
-    normal: '#45545b',
-    light: '#657a84',
-    lighter: '#98a9b0',
-    subtle: '#d0d6da',
-    subtler: '#e4e9ea',
-    subtlest: '#f2f3f5',
   },
 }

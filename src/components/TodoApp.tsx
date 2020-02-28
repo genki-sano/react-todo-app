@@ -6,20 +6,20 @@ import InputBase from '@material-ui/core/InputBase'
 import Paper from '@material-ui/core/Paper'
 import Header from 'components/Header'
 import TaskList from 'components/TaskList'
-import { Theme } from 'constants/theme'
+import { THEME } from 'constants/theme'
 import taskModule, { useTodoSelector } from 'modules/taskModule'
 
 const KEY_ENTER = 13
 
 const Warp = styled(Paper)`
-  margin-top: ${Theme.spacing(8)}px;
+  margin-top: ${THEME.spacing(8)}px;
 `
 
 const FromWarp = styled(Paper)`
-  padding-top: ${Theme.spacing(2)}px;
-  padding-right: ${Theme.spacing(4)}px;
-  padding-bottom: ${Theme.spacing(2)}px;
-  padding-left: ${Theme.spacing(12)}px;
+  padding-top: ${THEME.spacing(2)}px;
+  padding-right: ${THEME.spacing(4)}px;
+  padding-bottom: ${THEME.spacing(2)}px;
+  padding-left: ${THEME.spacing(12)}px;
 `
 
 const TodoApp: React.FC = () => {

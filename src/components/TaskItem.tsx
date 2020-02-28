@@ -9,7 +9,7 @@ import IconButton from '@material-ui/core/IconButton'
 import DeleteIcon from '@material-ui/icons/Delete'
 import DoneIcon from '@material-ui/icons/Done'
 import RadioButtonUncheckedSharpIcon from '@material-ui/icons/RadioButtonUncheckedSharp'
-import { Theme } from 'constants/theme'
+import { THEME } from 'constants/theme'
 import taskModule from 'modules/taskModule'
 
 interface TaskItemProps {
@@ -47,8 +47,8 @@ const TaskCard: React.FC<TaskItemProps> = props => {
           style={{
             color: `${
               props.completed
-                ? Theme.palette.text.disabled
-                : Theme.palette.text.primary
+                ? THEME.palette.text.disabled
+                : THEME.palette.text.primary
             }`,
             textDecoration: `${props.completed ? 'line-through' : 'none'}`,
           }}

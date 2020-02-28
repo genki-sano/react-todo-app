@@ -3,11 +3,11 @@ import styled from 'styled-components'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
-import { Color } from 'constants/color'
+import { COLOR } from 'constants/color'
 
 const Warp = styled(AppBar)`
-  background-color: ${Color.blue.d};
-  background: linear-gradient(90deg, ${Color.blue.d}, ${Color.green.d});
+  background-color: ${COLOR.blue.d};
+  background: linear-gradient(90deg, ${COLOR.blue.d}, ${COLOR.green.d});
 `
 
 const Header: React.FC = () => {
