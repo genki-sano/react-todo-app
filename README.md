@@ -5,7 +5,7 @@
 
 ## About react-todo-app
 
-react-todo-app is a simple todo list application built with React, Redux and Typescript.
+react-todo-app is a simple todo list application built with [React](https://github.com/facebook/react), [Redux](https://github.com/reduxjs/redux) and [Typescript](https://github.com/microsoft/TypeScript).
 
 ## Install
 
