@@ -1,5 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
+import styled from 'styled-components'
 import Checkbox from '@material-ui/core/Checkbox'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import ListItem from '@material-ui/core/ListItem'
@@ -11,6 +12,14 @@ import DoneIcon from '@material-ui/icons/Done'
 import RadioButtonUncheckedSharpIcon from '@material-ui/icons/RadioButtonUncheckedSharp'
 import { THEME } from 'constants/theme'
 import taskModule from 'modules/taskModule'
+
+const ListItemFirstAction = styled(ListItemIcon)`
+  max-width: 100%;
+`
+
+const ListItemFirstActionInner = styled(FormControlLabel)`
+  margin-right: 0;
+`
 
 interface TaskItemProps {
   num: number
@@ -30,8 +39,8 @@ const TaskCard: React.FC<TaskItemProps> = props => {
 
   return (
     <ListItem key={props.num} dense>
-      <ListItemIcon>
-        <FormControlLabel
+      <ListItemFirstAction>
+        <ListItemFirstActionInner
           control={
             <Checkbox
               icon={<RadioButtonUncheckedSharpIcon />}
@@ -54,7 +63,7 @@ const TaskCard: React.FC<TaskItemProps> = props => {
             textDecoration: `${props.completed ? 'line-through' : 'none'}`,
           }}
         />
-      </ListItemIcon>
+      </ListItemFirstAction>
       <ListItemSecondaryAction>
         <IconButton
           edge="end"
