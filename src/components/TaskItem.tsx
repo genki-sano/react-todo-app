@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 import Checkbox from '@material-ui/core/Checkbox'
+import Divider from '@material-ui/core/Divider'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
@@ -38,43 +39,46 @@ const TaskCard: React.FC<TaskItemProps> = props => {
   }
 
   return (
-    <ListItem key={props.num} dense>
-      <ListItemFirstAction>
-        <ListItemFirstActionInner
-          control={
-            <Checkbox
-              icon={<RadioButtonUncheckedSharpIcon />}
-              checkedIcon={<DoneIcon />}
-              color="primary"
-              disableRipple
-              checked={props.completed}
-            />
-          }
-          label={props.children}
-          onChange={() => {
-            toggleTask(props.num)
-          }}
-          style={{
-            color: `${
-              props.completed
-                ? THEME.palette.text.disabled
-                : THEME.palette.text.primary
-            }`,
-            textDecoration: `${props.completed ? 'line-through' : 'none'}`,
-          }}
-        />
-      </ListItemFirstAction>
-      <ListItemSecondaryAction>
-        <IconButton
-          edge="end"
-          onClick={() => {
-            deleteTask(props.num)
-          }}
-        >
-          <DeleteIcon />
-        </IconButton>
-      </ListItemSecondaryAction>
-    </ListItem>
+    <>
+      <ListItem key={props.num} dense>
+        <ListItemFirstAction>
+          <ListItemFirstActionInner
+            control={
+              <Checkbox
+                icon={<RadioButtonUncheckedSharpIcon />}
+                checkedIcon={<DoneIcon />}
+                color="primary"
+                disableRipple
+                checked={props.completed}
+              />
+            }
+            label={props.children}
+            onChange={() => {
+              toggleTask(props.num)
+            }}
+            style={{
+              color: `${
+                props.completed
+                  ? THEME.palette.text.disabled
+                  : THEME.palette.text.primary
+              }`,
+              textDecoration: `${props.completed ? 'line-through' : 'none'}`,
+            }}
+          />
+        </ListItemFirstAction>
+        <ListItemSecondaryAction>
+          <IconButton
+            edge="end"
+            onClick={() => {
+              deleteTask(props.num)
+            }}
+          >
+            <DeleteIcon />
+          </IconButton>
+        </ListItemSecondaryAction>
+      </ListItem>
+      <Divider />
+    </>
   )
 }
 

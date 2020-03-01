@@ -4,7 +4,9 @@ import styled from 'styled-components'
 import Container from '@material-ui/core/Container'
 import InputBase from '@material-ui/core/InputBase'
 import Paper from '@material-ui/core/Paper'
+import Divider from '@material-ui/core/Divider'
 import Header from 'components/Header'
+import List from '@material-ui/core/List'
 import TaskList from 'components/TaskList'
 import { THEME } from 'constants/theme'
 import taskModule from 'modules/taskModule'
@@ -16,10 +18,10 @@ const Warp = styled(Paper)`
   margin-top: ${THEME.spacing(8)}px;
 `
 
-const FromWarp = styled(Paper)`
-  padding-top: ${THEME.spacing(2)}px;
+const FromWarp = styled(List)`
+  padding-top: ${THEME.spacing(4)}px;
   padding-right: ${THEME.spacing(4)}px;
-  padding-bottom: ${THEME.spacing(2)}px;
+  padding-bottom: ${THEME.spacing(3)}px;
   padding-left: ${THEME.spacing(12)}px;
 `
 
@@ -49,6 +51,7 @@ const TodoApp: React.FC = () => {
               }}
             />
           </FromWarp>
+          <Divider />
           <TaskList tasks={state.tasks} />
         </Warp>
       </Container>
