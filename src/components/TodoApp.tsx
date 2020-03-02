@@ -37,7 +37,7 @@ const TodoApp: React.FC = () => {
     <>
       <Header />
       <Container maxWidth="sm">
-        <Warp>
+        <Warp elevation={3}>
           <FromWarp>
             <InputBase
               fullWidth
