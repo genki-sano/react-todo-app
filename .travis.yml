@@ -3,7 +3,6 @@ language: node_js
 node_js:
   - 'node'
   - 'lts/*'
-  - '12'
   - '11'
   - '10'
 
@@ -16,6 +15,11 @@ cache:
     - 'node_modules'
   yarn: true
 
+before_script:
+  - yarn
+  - yarn add -D coveralls
+
 script:
   - yarn build
   - yarn test
+  - yarn test --coverage && cat ./coverage/lcov.info | ./node_modules/.bin/coveralls
