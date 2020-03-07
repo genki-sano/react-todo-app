@@ -83,14 +83,6 @@ const TaskCard: React.FC<TaskItemProps> = props => {
             onChange={() => {
               toggleTask(props.num)
             }}
-            style={{
-              color: `${
-                props.completed
-                  ? THEME.palette.text.disabled
-                  : THEME.palette.text.primary
-              }`,
-              textDecoration: `${props.completed ? 'line-through' : 'none'}`,
-            }}
           />
         </ListItemFirstAction>
         {props.completed ? (
