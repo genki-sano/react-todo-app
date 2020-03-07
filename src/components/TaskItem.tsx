@@ -26,15 +26,18 @@ const ListItemFirstActionInner = styled(FormControlLabel)`
   margin-right: 0;
 `
 
-const ListItemInputBase = styled(InputBase)`
-  input {
-    padding: 7px 0 6px;
-  }
-`
-
 const ListItemText = styled(Typography)`
   color: ${THEME.palette.text.disabled};
+  line-height: 1.1875em;
+  padding: 7px 0 6px;
   text-decoration: line-through;
+`
+
+const ListItemInputBase = styled(InputBase)`
+  padding: 7px 0 6px;
+  textarea {
+    letter-spacing: 0.00938em;
+  }
 `
 
 interface TaskItemProps {
@@ -96,13 +99,18 @@ const TaskCard: React.FC<TaskItemProps> = props => {
           <ListItemInputBase
             autoFocus={props.focus}
             fullWidth
+            multiline
             onChange={(e: React.ChangeEvent<HTMLElement>) => {
               const target = e.target as HTMLInputElement
               editTask(props.num, target.value)
             }}
             onKeyDown={(e: React.KeyboardEvent<HTMLElement>) => {
-              if (e.keyCode === KEY_ENTER) {
+              const target = e.target as HTMLInputElement
+              if (target.value === '') {
+                e.preventDefault()
+              } else if (e.keyCode === KEY_ENTER) {
                 addTask('')
+                e.preventDefault()
               }
             }}
             value={props.children}
