@@ -5,6 +5,7 @@ describe('taskModule', () => {
     const state = {
       tasks: [],
       nextTaskId: 0,
+      focus: false,
     }
     const task = 'テストを学ぶ'
     const action = taskModule.actions.addTask(task)
@@ -12,6 +13,7 @@ describe('taskModule', () => {
     const expected = {
       tasks: [{ id: 0, text: task, completed: false }],
       nextTaskId: 1,
+      focus: true,
     }
 
     expect(result).toEqual(expected)
@@ -22,6 +24,7 @@ describe('taskModule', () => {
     const state = {
       tasks: [{ id: id, text: 'テストを学ぶ', completed: false }],
       nextTaskId: 1,
+      focus: false,
     }
     const task = 'テストを学んだ'
     const action = taskModule.actions.editTask({ id: id, text: task })
@@ -29,6 +32,7 @@ describe('taskModule', () => {
     const expected = {
       tasks: [{ id: id, text: task, completed: false }],
       nextTaskId: 1,
+      focus: false,
     }
 
     expect(result).toEqual(expected)
@@ -39,12 +43,14 @@ describe('taskModule', () => {
     const state = {
       tasks: [{ id: taskId, text: 'テストを学ぶ', completed: false }],
       nextTaskId: 1,
+      focus: false,
     }
     const action = taskModule.actions.toggleTask(taskId)
     const result = taskModule.reducer(state, action)
     const expected = {
       tasks: [{ id: taskId, text: 'テストを学ぶ', completed: true }],
       nextTaskId: 1,
+      focus: false,
     }
 
     expect(result).toEqual(expected)
@@ -54,12 +60,14 @@ describe('taskModule', () => {
     const state = {
       tasks: [{ id: taskId, text: 'テストを学ぶ', completed: true }],
       nextTaskId: 1,
+      focus: false,
     }
     const action = taskModule.actions.toggleTask(taskId)
     const result = taskModule.reducer(state, action)
     const expected = {
       tasks: [{ id: taskId, text: 'テストを学ぶ', completed: false }],
       nextTaskId: 1,
+      focus: false,
     }
 
     expect(result).toEqual(expected)
@@ -70,12 +78,14 @@ describe('taskModule', () => {
     const state = {
       tasks: [{ id: taskId, text: 'テストを学ぶ', completed: false }],
       nextTaskId: 1,
+      focus: false,
     }
     const action = taskModule.actions.deleteTask(taskId)
     const result = taskModule.reducer(state, action)
     const expected = {
       tasks: [],
       nextTaskId: 1,
+      focus: false,
     }
 
     expect(result).toEqual(expected)
@@ -88,12 +98,14 @@ describe('taskModule', () => {
         { id: 3, text: 'Reduxを学ぶ', completed: false },
       ],
       nextTaskId: 4,
+      focus: false,
     }
     const action = taskModule.actions.deleteTask(taskId)
     const result = taskModule.reducer(state, action)
     const expected = {
       tasks: [{ id: 3, text: 'Reduxを学ぶ', completed: false }],
       nextTaskId: 4,
+      focus: false,
     }
 
     expect(result).toEqual(expected)

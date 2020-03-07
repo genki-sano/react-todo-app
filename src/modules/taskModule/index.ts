@@ -5,6 +5,7 @@ import { getStrage, setStrage } from 'utils/tasks'
 const taskInitialState: TaskState = {
   tasks: [],
   nextTaskId: 0,
+  focus: false,
 }
 
 const taskModule = createSlice({
@@ -17,6 +18,7 @@ const taskModule = createSlice({
         text: action.payload,
         completed: false,
       })
+      state.focus = true
       setStrage(state)
     },
     editTask: (
@@ -29,6 +31,7 @@ const taskModule = createSlice({
           task.text = text
         }
       })
+      state.focus = false
       setStrage(state)
     },
     toggleTask: (state: TaskState, action: PayloadAction<number>) => {
@@ -36,12 +39,14 @@ const taskModule = createSlice({
       state.tasks.forEach(task => {
         task.completed = task.id === id ? !task.completed : task.completed
       })
+      state.focus = false
       setStrage(state)
     },
     deleteTask: (state: TaskState, action: PayloadAction<number>) => {
       state.tasks = state.tasks.filter((task: Task) => {
         return task.id !== action.payload
       })
+      state.focus = false
       setStrage(state)
     },
   },

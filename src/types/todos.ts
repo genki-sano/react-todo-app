@@ -7,4 +7,5 @@ export interface Task {
 export interface TaskState {
   tasks: Task[]
   nextTaskId: number
+  focus: boolean
 }
