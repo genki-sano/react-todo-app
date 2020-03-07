@@ -40,7 +40,7 @@ const TaskCard: React.FC<TaskItemProps> = props => {
 
   return (
     <>
-      <ListItem key={props.num} dense>
+      <ListItem key={props.num} dense role="listitem">
         <ListItemFirstAction>
           <ListItemFirstActionInner
             control={
