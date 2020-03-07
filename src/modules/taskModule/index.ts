@@ -19,6 +19,18 @@ const taskModule = createSlice({
       })
       setStrage(state)
     },
+    editTask: (
+      state: TaskState,
+      action: PayloadAction<{ id: number; text: string }>,
+    ) => {
+      const { id, text } = action.payload
+      state.tasks.forEach(task => {
+        if (task.id === id) {
+          task.text = text
+        }
+      })
+      setStrage(state)
+    },
     toggleTask: (state: TaskState, action: PayloadAction<number>) => {
       const id = action.payload
       state.tasks.forEach(task => {

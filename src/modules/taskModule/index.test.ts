@@ -17,6 +17,23 @@ describe('taskModule', () => {
     expect(result).toEqual(expected)
   })
 
+  it('addTask：タスク編集', () => {
+    const id = 0
+    const state = {
+      tasks: [{ id: id, text: 'テストを学ぶ', completed: false }],
+      nextTaskId: 1,
+    }
+    const task = 'テストを学んだ'
+    const action = taskModule.actions.editTask({ id: id, text: task })
+    const result = taskModule.reducer(state, action)
+    const expected = {
+      tasks: [{ id: id, text: task, completed: false }],
+      nextTaskId: 1,
+    }
+
+    expect(result).toEqual(expected)
+  })
+
   it('toggleTask：タスクを完了にする', () => {
     const taskId = 0
     const state = {
