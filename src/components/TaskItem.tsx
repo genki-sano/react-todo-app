@@ -92,12 +92,11 @@ const TaskCard: React.FC<TaskItemProps> = props => {
             autoFocus={props.focus}
             fullWidth
             multiline
-            onChange={(e: React.ChangeEvent<HTMLElement>) => {
-              const target = e.target as HTMLInputElement
-              editTask(props.num, target.value)
+            onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
+              editTask(props.num, e.target.value)
             }}
-            onKeyDown={(e: React.KeyboardEvent<HTMLElement>) => {
-              const target = e.target as HTMLInputElement
+            onKeyDown={(e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+              const target = e.target as HTMLTextAreaElement
               if (target.value === '') {
                 e.preventDefault()
               } else if (e.keyCode === KEY_ENTER) {
