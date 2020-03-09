@@ -1,7 +1,7 @@
 import taskModule from 'modules/taskModule'
 
 describe('taskModule', () => {
-  it('addTask：新規タスク追加', () => {
+  it('addTask：タスクが正常に追加できる', () => {
     const state = {
       tasks: [],
       nextTaskId: 0,
@@ -19,7 +19,7 @@ describe('taskModule', () => {
     expect(result).toEqual(expected)
   })
 
-  it('addTask：タスク編集', () => {
+  it('editTask：タスクが正常に編集できる', () => {
     const id = 0
     const state = {
       tasks: [{ id: id, text: 'テストを学ぶ', completed: false }],
@@ -31,6 +31,24 @@ describe('taskModule', () => {
     const result = taskModule.reducer(state, action)
     const expected = {
       tasks: [{ id: id, text: task, completed: false }],
+      nextTaskId: 1,
+      focus: false,
+    }
+
+    expect(result).toEqual(expected)
+  })
+  it('editTask：指定したIDがない時に変化がないと何も変化しない', () => {
+    const id = 2
+    const state = {
+      tasks: [{ id: 0, text: 'テストを学ぶ', completed: false }],
+      nextTaskId: 1,
+      focus: false,
+    }
+    const task = 'テストを学んだ'
+    const action = taskModule.actions.editTask({ id: id, text: task })
+    const result = taskModule.reducer(state, action)
+    const expected = {
+      tasks: [{ id: 0, text: 'テストを学ぶ', completed: false }],
       nextTaskId: 1,
       focus: false,
     }
@@ -72,8 +90,25 @@ describe('taskModule', () => {
 
     expect(result).toEqual(expected)
   })
+  it('toggleTask：指定したIDがない時に変化がないと何も変化しない', () => {
+    const taskId = 2
+    const state = {
+      tasks: [{ id: 0, text: 'テストを学ぶ', completed: false }],
+      nextTaskId: 1,
+      focus: false,
+    }
+    const action = taskModule.actions.toggleTask(taskId)
+    const result = taskModule.reducer(state, action)
+    const expected = {
+      tasks: [{ id: 0, text: 'テストを学ぶ', completed: false }],
+      nextTaskId: 1,
+      focus: false,
+    }
 
-  it('deleteTask：IDと順番が一致', () => {
+    expect(result).toEqual(expected)
+  })
+
+  it('deleteTask：IDと順番が一致した時に削除できる', () => {
     const taskId = 0
     const state = {
       tasks: [{ id: taskId, text: 'テストを学ぶ', completed: false }],
@@ -90,7 +125,7 @@ describe('taskModule', () => {
 
     expect(result).toEqual(expected)
   })
-  it('deleteTask：IDと順番が不一致', () => {
+  it('deleteTask：IDと順番が不一致の時に削除できる', () => {
     const taskId = 2
     const state = {
       tasks: [
