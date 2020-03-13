@@ -3,7 +3,7 @@ import List from '@material-ui/core/List'
 import TaskItem from 'components/TaskItem'
 import { Task } from 'types/todos'
 
-type TaskListProps = {
+interface TaskListProps {
   tasks: Task[]
   focus: boolean
 }
